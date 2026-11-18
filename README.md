@@ -10,19 +10,18 @@ Supports: KMB, CTB, GMB, MTR, Light Rail, NLB and more via `hk-bus-eta`.
 
 - Search routes by number or keyword (Chinese / English)
 - Get real-time ETA for a stop on a route
+- Get ETA for **all routes at a stop** (by stop ID)
 - List stops for a route
 - Search stops by name
+- Find **nearby stops** by lat/lon
 - Bilingual output
 
 ## Setup
 
 ```bash
-cd buseta-mcp
 pip install -r requirements.txt
 python src/server.py
 ```
-
-Local endpoint: `http://localhost:8000/mcp` (when using streamable HTTP)
 
 ## Claude Desktop / MCP Client Config
 
@@ -31,7 +30,7 @@ Local endpoint: `http://localhost:8000/mcp` (when using streamable HTTP)
   "mcpServers": {
     "buseta": {
       "command": "python",
-      "args": ["/absolute/path/to/buseta-mcp/src/server.py"]
+      "args": ["/absolute/path/to/BusEta-MCP/src/server.py"]
     }
   }
 }
@@ -43,8 +42,10 @@ Local endpoint: `http://localhost:8000/mcp` (when using streamable HTTP)
 |------|-------------|
 | `search_routes` | Search bus routes by keyword |
 | `get_route_eta` | Get ETA for a specific route + stop sequence |
+| `get_stop_eta` | Get ETA for **all routes** at a stop ID |
 | `get_route_stops` | List all stops of a route |
 | `search_stops` | Search stops by name |
+| `nearby_stops` | Find nearest stops by latitude / longitude |
 | `get_server_info` | Server status |
 
 ## Data Sources
